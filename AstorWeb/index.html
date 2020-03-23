@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+
+<!-- Cabecera -->
+
+    <div class="container" id="Cabecera">
+
+            <div class="row top" id=rowTop>
+
+                   <div class="col-md-2" id="logo">
+
+                    <a href="#home" data-ancla="home" ><img src="images/Logo3.png" alt=""></a>
+                   </div>
+
+
+                   <div class="col-md-2"id="Titulo">
+                       <h2 id="titulo_pagina">
+                           Astor Tilla
+                       </h2>
+                   </div>
+
+
+
+                    <div class="col-md-6"id="Botones">
+                    
+                                <nav class="navbar" id="Botonera">
+
+                                <a class="navbar-brand" href="" id="botones"> Inicio </a>
+                                <a class="navbar-brand" href=""id="botones"> Historia </a>
+                                <a class="navbar-brand" href="" id="botones"> Fotos y videos </a>
+                                   <a class="navbar-brand" href=""  id="botones"> Ultimos Resultados </a>
+                            </nav>
+                   </div>
+
+            </div>
+    </div>
+
+
+<!--[if IE]>
+    <div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <img src="https://images.unsplash.com/photo-1558981420-c532902e58b4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" alt="">
+    
+         </div>    
+    </div>
+        
+    
+</div>
+    
+    <![endif]-->
+<!-- Contenido del centro -->
+
+
+<!-- Contenedor Jugadores -->
+
+
+    <div class="container"id="contenedorJuga_Body" >
+
+            <div class="container row p-3" id="contJugadores">
+
+            </div>
+    
+    </div>
+
+
+
+    <footer class="page-footer font-small blue">
+
+            <!-- Copyright -->
+            <div class="footer-copyright text-center py-3">© 2019 Copyright:
+              <a href="https://www.OMGDev.com/">OMGDev</a>
+            </div>
+            <!-- Copyright -->
+          
+          </footer>
+          
+
+        
+
+
+
+
+ 
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script>
+        // A $( document ).ready() block.
+    $(document).ready(function() {    
+    $('.top a').click(function(e){
+            e.preventDefault();
+            var offset = $($(this).attr('href')).offset().top;
+            $('html, body').animate({scrollTop:offset}, 600);
+            return false;
+        });
+    
+    });
+     </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>    
+
+let Jugadores= [];
+
+function Player(nombre,apellido,apodo,dorsal,pathimg) {
+    this.Nombre = nombre
+    this.Apellido = apellido
+    this.Apodo = apodo
+    this.Dorsal = dorsal
+    this.pathImg=pathimg
+}
+
+function constuirEquipo(){
+/*
+let mJugador = new Player('Matias','De Olivera','Tuty',5,'imagenes\\1.JPG')
+Jugadores.push(mJugador)
+*/
+let mJugador1 = new Player('Joaquin','Escalante','Paragua',4,'https://images-na.ssl-images-amazon.com/images/I/618N3rMHr3L._SX466_.jpg')
+Jugadores.push(mJugador1)
+let mJugador2 = new Player('Pablo','Soria','Peron',23,'https://merkdoo.com/pub/media/catalog/product/cache/60c5c327fc4df5ec83cf22cf23fecb73/2/1/21573700000-rs.png')
+Jugadores.push(mJugador2)
+let mJugador3 = new Player('Lucas','Velez','Ciego',14,'data:image/jpeg;base64,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')
+Jugadores.push(mJugador3)
+let mJugador4= new Player('Hernan','Diaz','Moe',9,'http://3.bp.blogspot.com/_RAcIO3MvDxY/R2MwQubbCSI/AAAAAAAAANE/FFcli6Bnt_A/s400/500px-Moe_Szyslak.png')
+Jugadores.push(mJugador4)
+}
+constuirEquipo()
+
+function MostrarPlayers() {
+
+ContenedorJugadores = document.getElementById('contJugadores')  ;  
+
+ContenedorJugadores.innerHTML = ''
+
+
+    
+
+
+        for (let i = 0; i  < Jugadores.length; i++) {
+
+                let Nombre = Jugadores[i].Nombre
+                let Apellido = Jugadores[i].Apellido
+                let Apodo = Jugadores[i].Apodo
+                let Dorsal=Jugadores[i].Dorsal 
+                let pathImg = Jugadores[i].pathImg
+            
+
+
+                ContenedorJugadores.innerHTML +=
+`<div class="card border-dark mb-3" style="width: 18rem;">
+        <img src="${pathImg}" class="card-img-top" alt="...">
+  <div class="card-body">
+        <h5 class="card-title">${Nombre} - ${Apodo} - ${Dorsal} </h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>`
+                
+
+
+
+
+
+        }
+    
+
+}
+
+//document.write(JSON.stringify(Jugadores))
+//console.log(JSON.stringify(Jugadores))
+
+
+
+MostrarPlayers();
+
+    </script>
+
+
+</body>
+
+
+  
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pruebas con Js </title>
+    <link rel="stylesheet" href="./stylos.css" media="all" />
+</head>
+<body>
+    
+
+
+<!--
+    Creamos las etiquetas
+-->
+
+<!-- Contenedores de Saludos-->
+<div id="saludos">
+    <h1 id="saludo"> Lista de Jugadores</h1>
+</div>
+
+<!-- Texto de entrada para generar Saludos-->
+
+<input type="text" id="txtEntrada" value="">
+
+<!-- Boton que agregara Saludos al hacer click-->
+
+<button id="btnAgregarSaludos"> Guardar </button>
+
+
+<script>    
+    //Asociamos el id de la etiqueta a una variable
+   let titulo = document.getElementById("lblTitulo");
+    //Asociamos el id de la etiqueta a una variable
+   let entrada = document.getElementById("txtEntrada");
+    //Asociamos el id de la etiqueta a una variable
+   let btnAgregarSaludos = document.getElementById("btnAgregarSaludos");
+    //Asociamos el Id del contenedor de h1 
+    let ContenedorDeh1 = document.getElementById("saludos");
+   //Asociamos el evento Click a una funcion para cuando se haga click agregue los saludos
+   btnAgregarSaludos.addEventListener('click',function(){
+
+    // Asociamos el valor del texto de la entrada a una valiable
+    let mNombre = entrada.value;
+    //Creamos una etiqueta generica para agregar Los saludos
+    let saludoContenedor = document.createElement('h1');
+    //Creamos el saludo.
+    let textoSaludoGenerico = "Hola ,"+mNombre;
+    // Creamos un nodo de texto para poder asociarlo a la etiqueta
+    let textoSaludo = document.createTextNode(textoSaludoGenerico);
+    //Agregamos un Hijo a saludoContenedor 
+    saludoContenedor.appendChild(textoSaludo);
+    //Agregamos un Child Al contenedor de h1
+    ContenedorDeh1.appendChild(saludoContenedor);
+
+        
+    })
+
+   
+
+</script>
+
+</body>
+</html>
